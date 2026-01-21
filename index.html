@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCSY Fresher Welcome 2026 Game Activity</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --carnival-red: #E63946;
+      --carnival-yellow: #FFD700;
+      --carnival-blue: #1D3557;
+      --carnival-cream: #FFF8E7;
+      --carnival-purple: #9B59B6;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #FFE5B4 0%, #FFD1DC 50%, #E0BBE4 100%);
+      overflow-x: hidden;
+    }
+    
+    .main-wrapper {
+      width: 100%;
+      min-height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(230, 57, 70, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg, #FFE5B4 0%, #FFD1DC 50%, #E0BBE4 100%);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .content-container {
+      width: 100%;
+      max-width: 1400px;
+      padding: 0 20px;
+    }
+    
+    .carnival-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.8rem, 5vw, 4rem);
+      color: #E63946;
+      text-shadow: 
+        3px 3px 0 #FFD700,
+        6px 6px 0 rgba(0,0,0,0.1);
+      animation: titleBounce 2s ease-in-out infinite;
+      text-align: center;
+    }
+    
+    @keyframes titleBounce {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    
+    .subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+      color: #1D3557;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-align: center;
+    }
+    
+    .game-card {
+      background: linear-gradient(145deg, #FFFFFF 0%, #FFF8DC 100%);
+      border-radius: 20px;
+      border: 5px solid #E63946;
+      box-shadow: 
+        0 10px 30px rgba(0,0,0,0.15),
+        inset 0 2px 10px rgba(255,255,255,0.8);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #E63946 0px,
+        #E63946 20px,
+        #FFD700 20px,
+        #FFD700 40px
+      );
+    }
+    
+    .game-card:hover {
+      transform: translateY(-15px) rotate(2deg) scale(1.02);
+      box-shadow: 
+        0 20px 40px rgba(0,0,0,0.25),
+        inset 0 2px 10px rgba(255,255,255,0.8);
+      border-color: #FFD700;
+    }
+    
+    .game-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+    
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.05); }
+    }
+    
+    .game-number {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #E63946 0%, #C0392B 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.3rem;
+      color: white;
+      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+      z-index: 10;
+    }
+    
+    .game-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: #1D3557;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .game-type {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .type-single {
+      background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+      color: white;
+      box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+    }
+    
+    .type-multi {
+      background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+      color: white;
+      box-shadow: 0 3px 10px rgba(155, 89, 182, 0.3);
+    }
+    
+    .type-special {
+      background: linear-gradient(135deg, #E63946 0%, #C0392B 100%);
+      color: white;
+      box-shadow: 0 3px 10px rgba(230, 57, 70, 0.3);
+    }
+    
+    .game-rules {
+      background: rgba(255, 215, 0, 0.15);
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #1D3557;
+      border: 2px dashed #FFD700;
+    }
+    
+    .rules-title {
+      font-weight: 700;
+      color: #E63946;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .welcome-game-card {
+      background: linear-gradient(145deg, #FFD700 0%, #FFA500 100%);
+      border: 5px solid #E63946;
+      box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+    }
+    
+    .welcome-game-card::before {
+      background: repeating-linear-gradient(
+        90deg,
+        #1D3557 0px,
+        #1D3557 15px,
+        #E63946 15px,
+        #E63946 30px
+      );
+    }
+    
+    .mini-game {
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(29, 53, 87, 0.1);
+    }
+    
+    .mini-game:hover {
+      transform: translateX(8px);
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-color: #1D3557;
+    }
+    
+    .mini-game-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+    
+    .mini-game-name {
+      font-weight: 700;
+      color: #1D3557;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #FFD700;
+      animation: confettiFall 5s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes confettiFall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100%) rotate(720deg); opacity: 0; }
+    }
+    
+    .lights {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 25px;
+      background: repeating-linear-gradient(
+        90deg,
+        #E63946 0px,
+        #E63946 40px,
+        #FFD700 40px,
+        #FFD700 80px,
+        #27AE60 80px,
+        #27AE60 120px,
+        #3498DB 120px,
+        #3498DB 160px
+      );
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+    
+    .lights::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255,255,255,0.6) 50%, 
+        transparent 100%);
+      animation: lightSweep 2s linear infinite;
+    }
+    
+    @keyframes lightSweep {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .star {
+      position: fixed;
+      color: #FFD700;
+      animation: starTwinkle 2s ease-in-out infinite;
+      z-index: 0;
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.8));
+    }
+    
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    
+    .section-divider {
+      height: 5px;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 15px,
+        #FFD700 15px,
+        #FFD700 30px,
+        transparent 30px,
+        transparent 45px,
+        #E63946 45px,
+        #E63946 60px
+      );
+      margin: 50px auto;
+      border-radius: 3px;
+      max-width: 600px;
+    }
+    
+    .footer-text {
+      font-family: 'Fredoka One', cursive;
+      color: #E63946;
+      text-shadow: 2px 2px 0 #FFD700;
+    }
+    
+    .bounce-in {
+      animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    @keyframes bounceIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+    .delay-6 { animation-delay: 0.6s; }
+    
+    .badge {
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .carnival-title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+      
+      .game-card {
+        margin-bottom: 20px;
+      }
+      
+      .game-number {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+      }
+      
+      .lights {
+        height: 20px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .content-container {
+        padding: 0 15px;
+      }
+      
+      .game-icon {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .game-title {
+        font-size: 1.1rem;
+      }
+      
+      .game-type {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+      }
+      
+      .mini-game {
+        padding: 10px;
+        gap: 10px;
+      }
+      
+      .mini-game-icon {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .mini-game-name {
+        font-size: 0.8rem;
+      }
+    }
+    
+    .developer-footer {
+      background: rgba(29, 53, 87, 0.05);
+      border-top: 2px solid rgba(255, 215, 0, 0.3);
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    
+    .developer-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: #1D3557;
+      margin: 0;
+    }
+    
+    .developer-name {
+      font-weight: 700;
+      color: #E63946;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="lights"></div><!-- Confetti Elements -->
+  <div id="confetti-container"></div><!-- Stars -->
+  <div id="stars-container"></div>
+  <div class="main-wrapper">
+   <div class="content-container">
+    <div class="container-fluid py-5 position-relative" style="z-index: 1;"><!-- Header Section -->
+     <header class="text-center mb-5 pt-4">
+      <div class="mb-3">
+       <svg width="80" height="80" viewbox="0 0 100 100" class="d-inline-block" style="animation: iconFloat 2s ease-in-out infinite;"><circle cx="50" cy="50" r="45" fill="#FFD700" stroke="#E63946" stroke-width="5" /> <text x="50" y="65" text-anchor="middle" font-size="45">
+         🎪
+        </text>
+       </svg>
+      </div>
+      <h1 id="main-title" class="carnival-title mb-3">UCSY Fresher Welcome 2026</h1>
+      <p id="subtitle" class="subtitle mb-4"> GAME ACTIVITY </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <span class="badge bg-danger px-4 py-2 fs-6 d-block d-sm-inline-block">🎯 6 Exciting Games</span> 
+        <span class="badge bg-warning text-dark px-4 py-2 fs-6 d-block d-sm-inline-block">🏆 Win Prizes</span> 
+        <span class="badge bg-success px-4 py-2 fs-6 d-block d-sm-inline-block">🎉 Make Memories</span>
+        </div>
+
+     </header>
+     <div class="section-divider"></div><!-- Games Grid -->
+     <div class="row g-4 justify-content-center"><!-- Game 1: Bouncing Ball -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card p-4 bounce-in delay-1"><span class="game-number">1</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><circle cx="50" cy="30" r="20" fill="#FF6B6B" /> <ellipse cx="50" cy="80" rx="30" ry="15" fill="#4ECDC4" stroke="#1D3557" stroke-width="3" /> <path d="M20 80 L50 50 L80 80" stroke="#FFD700" stroke-width="3" fill="none" stroke-dasharray="5,5">
+           <animate attributename="stroke-dashoffset" from="0" to="20" dur="1s" repeatcount="indefinite" />
+          </path>
+         </svg>
+        </div>
+        <h3 class="game-title">🏓 Bouncing Ball</h3>
+        <div class="text-center mb-3"><span class="game-type type-single">Single Player</span>
+        </div>
+        <div class="game-rules">
+         <p class="rules-title">📜 How to Play:</p>
+         <ul class="mb-0 ps-3">
+          <li>Each player gets <strong>5 ping pong balls</strong></li>
+          <li>Throw balls into the cups</li>
+          <li>Land <strong>at least 2 balls</strong> to win!</li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- Game 2: Tic Tac Toe -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card p-4 bounce-in delay-2"><span class="game-number">2</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><line x1="33" y1="10" x2="33" y2="90" stroke="#1D3557" stroke-width="4" /> <line x1="66" y1="10" x2="66" y2="90" stroke="#1D3557" stroke-width="4" /> <line x1="10" y1="33" x2="90" y2="33" stroke="#1D3557" stroke-width="4" /> <line x1="10" y1="66" x2="90" y2="66" stroke="#1D3557" stroke-width="4" /> <circle cx="50" cy="50" r="15" fill="none" stroke="#E63946" stroke-width="4">
+           <animate attributename="r" values="15;18;15" dur="1s" repeatcount="indefinite" />
+          </circle> <line x1="15" y1="15" x2="30" y2="30" stroke="#3498DB" stroke-width="4" /> <line x1="30" y1="15" x2="15" y2="30" stroke="#3498DB" stroke-width="4" />
+         </svg>
+        </div>
+        <h3 class="game-title">⭕ Tic Tac Toe</h3>
+        <div class="text-center mb-3"><span class="game-type type-multi">Multiplayer</span>
+        </div>
+        <div class="game-rules">
+         <p class="rules-title">📜 How to Play:</p>
+         <ul class="mb-0 ps-3">
+          <li>Use cups of <strong>different sizes</strong></li>
+          <li>Bigger cups can <strong>cover smaller</strong> ones</li>
+          <li>Take opponent's space strategically!</li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- Game 3: Dart Game -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card p-4 bounce-in delay-3"><span class="game-number">3</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#E63946" /> <circle cx="50" cy="50" r="30" fill="#FFF" /> <circle cx="50" cy="50" r="20" fill="#E63946" /> <circle cx="50" cy="50" r="10" fill="#FFD700">
+           <animate attributename="r" values="10;12;10" dur="0.5s" repeatcount="indefinite" />
+          </circle> <line x1="70" y1="30" x2="55" y2="45" stroke="#1D3557" stroke-width="3" /> <polygon points="70,25 75,35 65,35" fill="#1D3557" />
+         </svg>
+        </div>
+        <h3 class="game-title">🎯 Dart Game</h3>
+        <div class="text-center mb-3"><span class="game-type type-multi">Multiplayer</span>
+        </div>
+        <div class="game-rules">
+         <p class="rules-title">📜 How to Play:</p>
+         <ul class="mb-0 ps-3">
+          <li>Throw darts at the target board</li>
+          <li>Aim for <strong>high-scoring areas</strong></li>
+          <li><strong>Highest score wins!</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- Game 4: Coin Flip -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card p-4 bounce-in delay-4"><span class="game-number">4</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><ellipse cx="50" cy="70" rx="25" ry="12" fill="#4ECDC4" stroke="#1D3557" stroke-width="3" /> <circle cx="50" cy="35" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="3">
+           <animatetransform attributename="transform" type="rotate" from="0 50 35" to="360 50 35" dur="2s" repeatcount="indefinite" />
+          </circle> <text x="50" y="42" text-anchor="middle" font-size="16" fill="#DAA520">
+           $
+          </text> <path d="M50 55 Q60 60 50 70" stroke="#FFD700" stroke-width="2" fill="none" stroke-dasharray="3,3">
+           <animate attributename="stroke-dashoffset" from="0" to="10" dur="0.5s" repeatcount="indefinite" />
+          </path>
+         </svg>
+        </div>
+        <h3 class="game-title"> Coin Flip Cup</h3>
+        <div class="text-center mb-3"><span class="game-type type-multi">Multiplayer</span>
+        </div>
+        <div class="game-rules">
+         <p class="rules-title">📜 How to Play:</p>
+         <ul class="mb-0 ps-3">
+          <li>Flip coins toward the cup</li>
+          <li>Race against your opponent</li>
+          <li><strong>First coin in wins!</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- Game 5: Kompira Funefune -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card p-4 bounce-in delay-5"><span class="game-number">5</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><rect x="30" y="50" width="40" height="30" rx="5" fill="#8B4513" stroke="#5D3A1A" stroke-width="2" /> <circle cx="35" cy="40" r="15" fill="#FFDAB9" stroke="#1D3557" stroke-width="2">
+           <animate attributename="cy" values="40;35;40" dur="0.3s" repeatcount="indefinite" />
+          </circle> <circle cx="65" cy="40" r="15" fill="#FFDAB9" stroke="#1D3557" stroke-width="2">
+           <animate attributename="cy" values="40;35;40" dur="0.3s" repeatcount="indefinite" begin="0.15s" />
+          </circle> <text x="50" y="90" text-anchor="middle" font-size="12" fill="#1D3557">
+           ✋ 🤚
+          </text>
+         </svg>
+        </div>
+        <h3 class="game-title">👋 Kompira Funefune</h3>
+        <div class="text-center mb-3"><span class="game-type type-multi">Multiplayer</span>
+        </div>
+        <div class="game-rules">
+         <p class="rules-title">📜 How to Play:</p>
+         <ul class="mb-0 ps-3">
+          <li>Traditional Japanese hand game</li>
+          <li>Tap the box in rhythm</li>
+          <li><strong>Best of 3 rounds!</strong></li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- Game 6: Welcome Game (Special) -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+       <div class="game-card welcome-game-card p-4 bounce-in delay-6"><span class="game-number" style="background: linear-gradient(135deg, #1D3557 0%, #2C3E50 100%);">★</span>
+        <div class="game-icon">
+         <svg viewbox="0 0 100 100"><polygon points="50,10 61,40 95,40 68,60 79,90 50,72 21,90 32,60 5,40 39,40" fill="#FFD700" stroke="#E63946" stroke-width="2">
+           <animate attributename="fill" values="#FFD700;#FFA500;#FFD700" dur="1s" repeatcount="indefinite" />
+          </polygon> <text x="50" y="55" text-anchor="middle" font-size="20" fill="#1D3557">
+           !
+          </text>
+         </svg>
+        </div>
+        <h3 class="game-title">🌟 Welcome Game</h3>
+        <div class="text-center mb-3"><span class="game-type type-special">⭐ Final Game - Everyone Plays!</span>
+        </div>
+        <p class="text-center small mb-3" style="color: #1D3557; font-weight: 600;"><strong>Find volunteers around the venue!</strong><br>
+          Complete 50-50 challenges to unlock the final prize!</p>
+        <div class="mini-games">
+         <div class="mini-game">
+          <div class="mini-game-icon">
+           <svg viewbox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" /> <text x="25" y="32" text-anchor="middle" font-size="16">
+             🪙
+            </text>
+           </svg>
+          </div>
+          <div>
+           <p class="mini-game-name">Coin Flip - Head or Tails</p>
+          </div>
+         </div>
+         <div class="mini-game">
+          <div class="mini-game-icon">
+           <svg viewbox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="#3498DB" /> <text x="25" y="32" text-anchor="middle" font-size="14" fill="white">
+             1️⃣2️⃣
+            </text>
+           </svg>
+          </div>
+          <div>
+           <p class="mini-game-name">Even or Odd</p>
+          </div>
+         </div>
+         <div class="mini-game">
+          <div class="mini-game-icon">
+           <svg viewbox="0 0 50 50"><circle cx="17" cy="25" r="12" fill="#E63946" /> <circle cx="33" cy="25" r="12" fill="#27AE60" />
+           </svg>
+          </div>
+          <div>
+           <p class="mini-game-name">Find the Colour</p>
+          </div>
+         </div>
+         <div class="mini-game">
+          <div class="mini-game-icon">
+           <svg viewbox="0 0 50 50"><text x="10" y="35" font-size="20">
+             👈
+            </text> <text x="30" y="35" font-size="20">
+             👉
+            </text>
+           </svg>
+          </div>
+          <div>
+           <p class="mini-game-name">Left or Right</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="section-divider"></div><!-- Footer -->
+     <footer class="text-center py-4">
+      <h2 class="footer-text fs-3 mb-3">Come Join The Fun!</h2>
+      <p class="mb-4" style="color: #1D3557; font-weight: 600;">Experience the carnival atmosphere at UCSY Fresher Welcome 2026</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+       <div class="badge bg-danger px-4 py-3 fs-6">
+        📍 UCSY Campus , Main Building First Floor
+       </div>
+       <div class="badge bg-warning text-dark px-4 py-3 fs-6">
+        📅 22-1-2026
+       </div>
+       <div class="badge bg-success px-4 py-3 fs-6">
+        🎮 6 Games
+       </div>
+      </div>
+     </footer><!-- Developer Credit Footer -->
+     <div class="developer-footer text-center">
+      <p class="developer-text">Developed by <span class="developer-name">ARIES</span></p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      main_title: 'UCSY Fresher Welcome 2026',
+      subtitle: '🎠 GAME ACTIVITY 🎠',
+      primary_color: '#E63946',
+      secondary_color: '#FFD700',
+      text_color: '#1D3557',
+      background_color: '#FFFFFF',
+      accent_color: '#9B59B6'
+    };
+    
+    // Create confetti
+    function createConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['#E63946', '#FFD700', '#3498DB', '#27AE60', '#9B59B6'];
+      
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 5 + 's';
+        confetti.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        confetti.style.width = (Math.random() * 10 + 5) + 'px';
+        confetti.style.height = (Math.random() * 10 + 5) + 'px';
+        container.appendChild(confetti);
+      }
+    }
+    
+    // Create stars
+    function createStars() {
+      const container = document.getElementById('stars-container');
+      for (let i = 0; i < 15; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.innerHTML = '✦';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(star);
+      }
+    }
+    
+    // Render function
+    async function onConfigChange(config) {
+      const titleEl = document.getElementById('main-title');
+      const subtitleEl = document.getElementById('subtitle');
+      
+      if (titleEl) {
+        titleEl.textContent = config.main_title || defaultConfig.main_title;
+        titleEl.style.color = config.primary_color || defaultConfig.primary_color;
+      }
+      
+      if (subtitleEl) {
+        subtitleEl.textContent = config.subtitle || defaultConfig.subtitle;
+        subtitleEl.style.color = config.text_color || defaultConfig.text_color;
+      }
+      
+      // Apply colors to game cards
+      const gameCards = document.querySelectorAll('.game-card:not(.welcome-game-card)');
+      gameCards.forEach(card => {
+        card.style.borderColor = config.primary_color || defaultConfig.primary_color;
+        card.style.background = `linear-gradient(145deg, ${config.background_color || defaultConfig.background_color} 0%, #FFF8DC 100%)`;
+      });
+      
+      // Apply colors to game titles
+      const gameTitles = document.querySelectorAll('.game-title');
+      gameTitles.forEach(title => {
+        title.style.color = config.text_color || defaultConfig.text_color;
+      });
+      
+      // Apply accent color to game type badges
+      const multiTypeBadges = document.querySelectorAll('.type-multi');
+      multiTypeBadges.forEach(badge => {
+        badge.style.background = `linear-gradient(135deg, ${config.accent_color || defaultConfig.accent_color} 0%, #8E44AD 100%)`;
+      });
+    }
+    
+    // Map to capabilities
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              window.elementSdk.setConfig({ secondary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+    
+    // Map to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['main_title', config.main_title || defaultConfig.main_title],
+        ['subtitle', config.subtitle || defaultConfig.subtitle]
+      ]);
+    }
+    
+    // Initialize
+    createConfetti();
+    createStars();
+    
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c164076d09dce87',t:'MTc2ODk5MjYzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
